@@ -8,13 +8,25 @@
 [![Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg](https://i.postimg.cc/MKtYzt5J/Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg)](https://postimg.cc/CzB8NG9c)
 
 1. Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número.
-
 ```python
+'''Separar todos los digitos que componen un número.'''
+#Creamos variable
+digitosNumero=[]
+#Creamos una funcion donde nos de el residuo de x al dividirlo entre 10 para hallar su ultimo numero
+def digitos(x):
+    while x > 0:
+        digitosNumero.append(x % 10)
+        #dividimos nuestro numero por parte entera entre 10
+        x = x//10
+    #mostrar los digitos en el mismo orden q el usuario los ingreso[::-1]
+    print ("Los digitos de su número son :",digitosNumero[::-1])
 
+
+if __name__=="__main__":
+ usuario = int(input("Ingrese su número favorito :) = "))
+ digitos(usuario)
 ```
 2. Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
-
-
 ```python
 
 ```
