@@ -5,7 +5,7 @@
 | Juan David Uribe Vélez       | 1011087091     |   ProGreening   | Ingeniería Agrícola |
 | Pablo Mendoza Malagón        | 1072645448     |                 |                     |
 
-[![Imagen-de-Whats-App-2024-03-13-a-las-21-45-30-bc88fd85.jpg](https://i.postimg.cc/tgBthGhZ/Imagen-de-Whats-App-2024-03-13-a-las-21-45-30-bc88fd85.jpg)](https://postimg.cc/mcFHsqpB)
+[![Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg](https://i.postimg.cc/MKtYzt5J/Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg)](https://postimg.cc/CzB8NG9c)
 
 1. Desarrollar un programa que ingrese un número entero n y separe todos los digitos que componen el número.
 
