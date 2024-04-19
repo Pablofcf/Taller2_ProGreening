@@ -60,7 +60,13 @@ if __name__=="__main__":
 8. Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista.
 
 ```python
-
+'''que elementos tiene la primer lista que no tenga la segunda lista.'''
+#Crear 2 variables, cada una con una lista independiente
+lista1=[1,2,3,4,5,6,7,8,9,0,"hola mundo","python","Real madrid","felipe Roldan"]
+lista2=["Barcelona","Felipe roldan",8,9,7,3,1,4,6,"hola Mundo", "python"]
+#Para saber que datos no se repiten en la lista 1 se resta el contenido de la lista 2 al cont de la lista 1
+salida=set(lista1)-set(lista2)
+print("Los elementos que no se repiten en la primera lista son:\n ",salida)
 ```
 9. Resolver el punto 7 del taller 1 usando operaciones con vectores.
 T1_7 Escriba un programa que pida 5 números reales y calcule las siguientes operaciones:El promedio, la mediana, el promedio multiplicativo (multilplica todos y luego calcula la raíz de la cantidad de operandos), ordenar los números de forma ascendente, ordenar los números de forma descendente, la potencia del mayor número elevado al menor número y la raíz cúbica del menor número.
@@ -75,7 +81,37 @@ T1_7 Escriba un programa que pida 5 números reales y calcule las siguientes ope
 ```
 BONUS 
 11. Desarrollar un algoritmo que determine si una matriz es mágica. Se dice que una matriz cuadrada es mágica si la suma de cada una de sus filas, de cada una de sus columnas y de cada diagonal es igual.
-
 ```python
+square= []
+square.append([29*29, 1, 47*47])
+square.append([41**2, 37**2, 1])
+square.append([529, 1681, 841])
 
+
+for row in square:
+    rowsum = 0
+    for element in row:
+        rowsum += element
+    print(rowsum)
+
+
+for i in range(3):
+    colsum = 0
+    rowsum = 0
+    for j in range(3):
+        colsum += square[i][j]
+        rowsum += square[j][i]
+    print("Colsum: ",colsum)
+    print("Rowsum: ",rowsum)
+
+
+diag1sum = 0
+diag2sum = 0
+for i in range(3):
+    diag1sum += square[i][i]
+    diag2sum += square[2-i][i]
+
+
+print("diag1sum",diag1sum)
+print("diag2sum",diag2sum)
 ```
