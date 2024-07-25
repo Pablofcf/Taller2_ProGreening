@@ -1,9 +1,8 @@
 # Taller2_ProGreening
 | Nombre                       | Identificación |      Grupo      |      Carrera        |
 |------------------------------|----------------|-----------------|---------------------|
-| Brayan Andres Guerrero Cortés| 1011201494     |                 |                     |
-| Juan David Uribe Vélez       | 1011087091     |   ProGreening   | Ingeniería Agrícola |
-| Pablo Mendoza Malagón        | 1072645448     |                 |                     |
+| Brayan Andres Guerrero Cortés| 1011201494     |                 | Ingeniería Agrícola |
+| Pablo Mendoza Malagón        | 1072645448     |                 | Ingeniería Agrícola |
 
 [![Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg](https://i.postimg.cc/MKtYzt5J/Imagen-de-Whats-App-2024-04-18-a-las-13-37-14-41369a78.jpg)](https://postimg.cc/CzB8NG9c)
 
