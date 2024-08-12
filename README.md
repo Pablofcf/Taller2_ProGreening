@@ -39,7 +39,49 @@ if __name__=="__main__":
 [![Captura-de-pantalla-2024-03-26-100617.png](https://i.postimg.cc/8kXm959J/Captura-de-pantalla-2024-03-26-100617.png)](https://postimg.cc/jCNfJsst)
 
 ```python
+import math
 
+
+# Función para calcular la aproximación del coseno usando la serie de Taylor
+def cos_taylor(x, n):
+    aproximacion = sum(((-1)**k * x**(2*k)) / math.factorial(2*k) for k in range(n))
+    return aproximacion
+
+
+# Función para calcular el error porcentual entre el valor real y la aproximación
+def error_porcentaje(real, aproximado):
+    return abs((real - aproximado) / real) * 100
+
+
+# Valores a calcular
+x = float(input("Ingresa el valor de x (en grados): "))
+x_radianes = math.radians(x)
+real_value = math.cos(x_radianes)  # Usar x_radianes aquí
+
+
+# Determinar el número de términos para errores específicos
+errors = [10, 1, 0.1, 0.001]
+results = {}
+
+
+for error in errors:
+    n = 1
+    while True:
+        approximation = cos_taylor(x_radianes, n)
+        current_error = error_porcentaje(real_value, approximation)
+        if current_error <= error:
+            results[error] = n
+            break
+        n += 1
+
+
+# Devolver resultados en una estructura de datos
+results_list = [(error, terminos) for error, terminos in results.items()]
+
+
+#Iteracion para mostrar los resultados
+for error, terminos in results_list:
+    print(f"Para un error de {error}%, se necesitan {terminos} términos.")
 ```
 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. Pista: Puede ser de utilidad chequear el Algoritmo de Euclides para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
 
