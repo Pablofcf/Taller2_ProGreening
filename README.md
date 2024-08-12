@@ -86,7 +86,67 @@ for error, terminos in results_list:
 5. Desarrollar un programa que permita determinar el Minimo Comun Multiplo de dos numeros enteros. Abordar el problema desde una perpectiva tanto iterativa como recursiva. Pista: Puede ser de utilidad chequear el Algoritmo de Euclides para el cálculo del Máximo Común Divisor, y revisar cómo se relaciona este último con el Mínimo Común Múltiplo.
 
 ```python
+# Solicitar al usuario que ingrese dos números enteros
+primer_entero = int(input("Elija el primer número entero: "))
+segundo_entero = int(input("Elija el segundo número entero: "))
 
+
+# Inicializar listas para almacenar divisores, residuos y cocientes
+divisor = []
+residuos = []
+cocientes = []
+
+
+# Determinar cuál número es mayor para iniciar el cálculo
+if primer_entero > segundo_entero:
+    # Calcular el primer cociente y residuo usando el mayor y menor de los dos números
+    cociente = primer_entero // segundo_entero
+    cocientes.append(cociente)  # Guardar el cociente en la lista
+    residuo = primer_entero % segundo_entero
+    residuos.append(residuo)  # Guardar el residuo en la lista
+    divisor.append(segundo_entero)  # Guardar el divisor (el número menor)
+else:
+    # Similar al bloque anterior, pero para el caso donde el segundo número es mayor
+    cociente = segundo_entero // primer_entero
+    cocientes.append(cociente)
+    residuo = segundo_entero % primer_entero
+    residuos.append(residuo)
+    divisor.append(primer_entero)
+
+
+# Bucle para continuar el proceso de división hasta que el residuo sea 0
+while residuo != 0:
+    divisor_actual = divisor[-1]  # Obtener el último divisor de la lista
+    residuo_anterior = residuos[-1]  # Obtener el último residuo de la lista
+
+
+    # Si el residuo es 0, se rompe el ciclo para evitar división por 0
+    if residuo_anterior == 0:
+        break
+
+
+    # Calcular el nuevo residuo y cociente
+    residuo = divisor_actual % residuo_anterior
+    cociente = divisor_actual // residuo_anterior
+   
+    # Guardar el nuevo residuo y cociente en sus respectivas listas
+    residuos.append(residuo)
+    cocientes.append(cociente)
+   
+    # Actualizar la lista de divisores con el residuo anterior
+    divisor.append(residuo_anterior)
+
+
+# Calcular el Máximo Común Divisor (MCD)
+m_c_d = sum(cocientes)  
+
+
+# Calcular el Mínimo Común Múltiplo (MCM)
+m_c_m = (primer_entero * segundo_entero) / m_c_d
+
+
+# Imprimir los resultados finales
+print("El M.C.M y M.C.D de los números entregados son " + str(m_c_m) + " y " + str(m_c_d) + " respectivamente.")
 ```
 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. Pista: Maneje valores booleanos y utilice el operador in.
 
@@ -118,7 +178,45 @@ T1_7 Escriba un programa que pida 5 números reales y calcule las siguientes ope
 10. Suponga que se tiene una lista A con ciertos números enteros. Desarrolle una función que, independientemente de los números que se encuentran en la lista A, tome aquellos números que son múltiplos de 3 y los guarde en una lista nueva, la cual debe ser retornada por la función. Implemente la perspectiva de un patrón de acumulación y también de comprensión de listas.
 
 ```python
+A = [12, 22, 45, 33, 19, 81, 100, 30]
 
+
+# Función haciendo uso de %
+def obtener_multiplos_de_3_con_modulo(A):
+    multiplos = []  # Lista para acumular los múltiplos de 3
+    for num in A:  # Recorre cada número en la lista A
+        if num % 3 == 0:  # Verifica si el número es múltiplo de 3 usando %
+            multiplos.append(num)  # Si es múltiplo de 3, se añade a la lista
+    return multiplos  # Retorna la lista de múltiplos de 3
+
+
+resultados = obtener_multiplos_de_3_con_modulo(A)
+print(resultados)  # Imprime la lista de múltiplos de 3 encontrados
+
+
+# Función para verificar si un número es múltiplo de 3 sin hacer uso de %
+def multiplo_de_3(num):
+    suma = 0  # Inicializa la suma de los dígitos
+    for digit in str(num):  # Recorre cada dígito del número
+        suma += int(digit)  # Convierte el dígito a entero y lo suma
+   
+    # Resta 3 de la suma repetidamente hasta que sea menor que 3
+    while suma >= 3:
+        suma -= 3
+   
+    return suma == 0  # Si el resultado final es 0, el número es múltiplo de 3
+
+
+# Función que utiliza la función anterior para obtener los múltiplos de 3 en la lista A
+def obtener_multiplos_de_3(A):
+    multiplos = []  # Lista para acumular los múltiplos de 3
+    for num in A:  # Recorre cada número en la lista A
+        if multiplo_de_3(num):  # Verifica si el número es múltiplo de 3
+            multiplos.append(num)  # Si es múltiplo de 3, se añade a la lista
+    return multiplos  # Retorna la lista de múltiplos de 3
+
+
+print(obtener_multiplos_de_3(A))  # Imprime la lista de múltiplos de 3 encontrados
 ```
 BONUS 
 11. Desarrollar un algoritmo que determine si una matriz es mágica. Se dice que una matriz cuadrada es mágica si la suma de cada una de sus filas, de cada una de sus columnas y de cada diagonal es igual.
