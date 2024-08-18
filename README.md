@@ -27,12 +27,73 @@ if __name__=="__main__":
 ```
 2. Desarrollar un programa que ingrese un número flotante n y separe su parte entera de la parte decimal, y luego entregue los dígitos tanto de la parte entera como de la decimal.
 ```python
-
+def separador_de_digitos(nFloat): 
+    separador_parte_entera = nFloat // 1
+    separador_parte_decimal = float(nFloat - int(separador_parte_entera))
+    return print(f"La parte entera es: { separador_parte_entera} y la parte decimal es: {separador_parte_decimal}")
+if __name__ == "__main__":
+    nFloat = float(input("Digite un numero racional: "))
+    separador_de_digitos(nFloat)
 ```
 3. Desarrollar un programa que permita ingresar dos números enteros y determinar si se tratan de números espejos, definiendo números espejos como dos números a y b tales que a se lee de izquierda a derecha igual que se lee b de derecha a izquierda, y viceversa.
 
 ```python
-
+def verificador(a:str,b:str):
+    if (a.isdigit() and b.isdigit()): 
+        return True
+    else:
+        return False
+def operador_a(a:int):
+    lista_a=[]
+    entrada=a
+    longitud=0
+    entrada_1=entrada
+    while entrada_1>0:
+        entrada_1//=10
+        longitud+=1
+    while longitud>0:
+        cifra=entrada//10**(longitud-1)
+        cifra=cifra%10
+        longitud-=1
+        lista_a.append(cifra)
+    return lista_a
+def operador_b(b:int):
+    lista_b=[]
+    entrada=b
+    longitud=0
+    entrada_1=entrada
+    while entrada_1>0:
+        entrada_1//=10
+        longitud+=1
+    longitud_1=0
+    while longitud_1<longitud:
+        cifra_2=entrada//10**(longitud_1)
+        cifra_2=cifra_2%10
+        longitud_1+=1
+        lista_b.append(cifra_2)
+    return lista_b
+def identificador(lista_a:list,lista_b:list):
+    if lista_a==lista_b:
+        return True
+    else:
+        return False
+if __name__=="__main__":
+    a=input("Digite un numero: ")
+    b=input("Digite otro numero: ")
+    verificar=verificador(a,b)
+    if verificar==True:
+        a=int(a)
+        b=int(b)
+        print(a+b)
+        lista_a=operador_a(a)
+        lista_b=operador_b(b)
+        juicio=identificador(lista_a,lista_b)
+        if juicio==True:
+            print("Los numeros ",a," y ",b,"son numeros espejos")
+        else:
+            print("Los numeros digitados",a," y ",b," no son numeros espejos")
+    else:
+        print("No se han digitado datos validos")
 ```
 4. Diseñar una función que permita calcular una aproximación de la función coseno alrededor de 0 para cualquier valor x (real), utilizando los primeros n términos de la serie de Taylor. nota: use math para traer la función coseno y mostrar la diferencia entre el valor real y la aproximación. Calcule con cuántos términos de la serie (i.e: cuáles valores de n), se tienen errores del 10%, 1%, 0.1% y 0.001%.
 
@@ -151,12 +212,45 @@ print("El M.C.M y M.C.D de los números entregados son " + str(m_c_m) + " y " + 
 6. Desarrollar un programa que determine si en una lista existen o no elementos repetidos. Pista: Maneje valores booleanos y utilice el operador in.
 
 ```python
-
+def listarepeticion(l:list,k:bool):
+    i=1
+    while i==1:
+        e= input("Digite un dato: ")
+        l.append(e)
+        i=int(input("Quiere digitar otro dato? (1, cualquier otro numero para no)"))
+    if k==True: print("La priemra lista es: "+ str(l)+ ", la siguiente lista no debe tener mas de "+ str(len(l))+" datos")
+    else: print("La lista es: "+ str(l)+ ", la cual tiene "+ str(len(l))+" datos")
+if __name__=="__main__":
+    p:bool=False
+    lista1=[]
+    lista2=[]
+    listarepeticion(lista1,False)
+    for i in lista1:
+        if lista1.count(i)!=1 and i in lista2!=True:
+            print("El numero "+str(i)+" se repite "+str(lista1.count(i))+" veces")
+            lista2.append(i)
+            p=True
+    if p==True: 
+        print("En la lista hay valores repetidos")
+    else:
+        print("No hay valores repetidos")
 ```
 7. Desarrollar un programa que determine si en una lista se encuentra una cadena de caracteres con dos o más vocales. Si la cadena existe debe imprimirla y si no existe debe imprimir 'No existe'.
 
 ```python
-
+from Punto_6 import listarepeticion
+if __name__ == "__main__":
+    o:list=[]
+    q:list=["a","e","i","o","u","A","E","I","O","U"]
+    listarepeticion(o,False)
+    for i in o:
+        l:int=0
+        for j in i:
+            if j in q: 
+                l=l+1
+        if l==1: print("La palabra "+i+" tiene "+str(l)+" vocales")
+        elif l>1: print("La palabra "+i+" tiene "+str(l)+" vocales")
+        else: print("La palabra "+i+" no es una cadena o no tiene vocales")
 ```
 8. Desarrollar un programa que dadas dos listas determine que elementos tiene la primer lista que no tenga la segunda lista.
 
